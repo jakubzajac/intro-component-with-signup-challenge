@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+// some sass variables, defining breakpoints
+$tablet-breakpoint: 768px;
+$small-desktop-breakpoint: 960px;
+$desktop-breakpoint: 1200px;
+
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+strong {
+  font-weight: 600;
+}
+
+body {
+
+  --primary-red: hsl(0, 100%, 74%);
+  --primary-green: hsl(154, 59%, 51%);
+  --green-shadow: hsl(154, 59%, 46%);
+  --accent-blue: hsl(248, 32%, 49%);
+  --neutral-dark-blue: hsl(249, 10%, 26%);
+  --neutral-grayish-blue: hsl(246, 25%, 77%);
+
+  background-image: url('../images/bg-intro-mobile.png');
+  background-color: var(--primary-red);
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+  width: 85%;
+  margin: 6rem auto 3.75rem auto;
+  text-align: center;
+  color: #fff;
+  grid-area: hero;
+}
+
+.hero__heading {
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 2rem;
+}
+
+.hero__subheading {
+  line-height: 1.7rem;
+  margin-top: 1.5rem;
+  font-weight: 400;
+}
+
+.pricing {
+  width: 85%;
+  background-color: var(--accent-blue);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 4rem;
+  border-radius: 8px;
+  line-height: 1.8rem;
+  margin: 0 auto;
+  box-shadow: 0 0.5rem rgba(0, 0, 0, 0.1);
+  grid-area: pricing;
+
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: block;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 85%;
+  margin: auto;
+  padding: 1.5rem;
+  box-shadow: 0 0.5rem rgba(0, 0, 0, 0.1);
+  grid-area: form;
+}
+
+.form__group {
+  margin-bottom: 1rem;
+}
+
+.form__group--invalid {
+  position: relative;
+
+  &::before {
+    content: '!';
+    position: absolute;
+    top: 14px;
+    right: 1.5rem;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--primary-red);
+    color: #fff;
+    text-align: center;
+    padding-top: 0.3rem;
+  }
+}
+
+.form__input {
+  display: block;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--neutral-grayish-blue);
+  color: var(--neutral-dark-blue);
+  width: 100%;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.8rem;
+  outline: none; 
+
+  &:focus {
+    border-color: var(--neutral-dark-blue);
+  }
+}
+
+.form__group--invalid .form__input {
+  border: 2px solid var(--primary-red);
+}
+
+.form__error {
+  font-size: 0.6rem;
+  text-align: right;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: var(--primary-red);
+  font-style: italic;
+  display: none;
+}
+
+.form__group--invalid .form__error {
+  display: block;
+}
+
+
+
+.form__button {
+  padding: 1rem;
+  background-color: var(--primary-green);
+  border: none;
+  width: 100%;
+  color: #fff;
+  font-family: inherit;
+  text-transform: uppercase;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-shadow: 0 0.25rem var(--green-shadow);
+  margin-bottom: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  cursor: pointer;
+  transition: background-color .3s;
+  outline: 0;
+
+  &:hover {
+    background-color: #76E2B4;
+  }
+
+  &:focus {
+    background-color: var(--green-shadow);
+  }
+}
+
+.form__disclaimer {
+  color: var(--neutral-grayish-blue);
+  font-size: 0.6rem;
+  text-align: center;
+  line-height: 1.2rem;
+  font-weight: 500;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.form__link {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--primary-red);
+}
+
+@media (min-width: $small-desktop-breakpoint) {
+  .wrapper {
+    min-height: 100vh;
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "hero pricing"
+      "hero form";
+  }
+
+  .hero, .pricing, .form {
+    width: 85%;
+    margin: 0;
+  }
+
+  .hero {
+    text-align: left;
+    justify-self: end;
+  }
+
+  .hero__heading {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+
+  .pricing {
+    align-self: end;
+    justify-self: start;
+  }
+  
+  .form {
+    align-self: start;
+    justify-self: start;
+    padding: 2rem;
+  }
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .hero, .pricing, .form {
+    width: 75%;
+  }
+}
+
+
+/* Frontend Mentor footer styles */
+footer {
+  padding-top: 2rem;
+}
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
